@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAKAUT Question Papers</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Main Content Area -->
+        <div id="main-content" class="content-area">
+            <!-- Question Papers Tab -->
+            <div id="question-papers" class="tab-content active">
+                <div class="dept-container">
+                    <h2>Select Department</h2>
+                    <div id="departments" class="grid-container"></div>
+                </div>
+                <div class="sem-container hidden">
+                    <h2>Select Semester</h2>
+                    <div id="semesters" class="grid-container"></div>
+                </div>
+                <div class="year-container hidden">
+                    <h2>Select Year</h2>
+                    <div id="years" class="grid-container"></div>
+                </div>
+                <div class="papers-container hidden">
+                    <h2>Available Papers</h2>
+                    <div id="papers" class="grid-container"></div>
+                </div>
+            </div>
+
+            <!-- Topup Wallet Tab -->
+            <div id="topup-wallet" class="tab-content">
+                <div class="wallet-container">
+                    <h2>Topup Wallet</h2>
+                    <div class="balance-display">
+                        <i class="fas fa-star"></i>
+                        <span id="current-balance">0</span>
+                    </div>
+                    <div class="topup-form">
+                        <input type="number" id="star-amount" placeholder="Enter amount of stars" min="1">
+                        <button id="topup-button" class="btn btn-primary">Topup Stars</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purchase History Tab -->
+            <div id="purchase-history" class="tab-content">
+                <h2>Purchase History</h2>
+                <div id="history-list" class="history-container"></div>
+            </div>
+
+            <!-- Profile Tab -->
+            <div id="profile" class="tab-content">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="user-name">User Name</h2>
+                            <p id="user-id">ID: 123456789</p>
+                        </div>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-star"></i>
+                            <div class="stat-info">
+                                <h3>Stars Balance</h3>
+                                <p id="profile-balance">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-file-alt"></i>
+                            <div class="stat-info">
+                                <h3>Papers Purchased</h3>
+                                <p id="papers-count">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-coins"></i>
+                            <div class="stat-info">
+                                <h3>Total Spent</h3>
+                                <p id="total-spent">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="department-stats">
+                        <h3>Department-wise Statistics</h3>
+                        <div id="dept-stats" class="dept-stats-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-tab="question-papers">
+                <i class="fas fa-file-alt"></i>
+                <span>Papers</span>
+            </button>
+            <button class="nav-item" data-tab="topup-wallet">
+                <i class="fas fa-wallet"></i>
+                <span>Topup</span>
+            </button>
+            <button class="nav-item" data-tab="purchase-history">
+                <i class="fas fa-history"></i>
+                <span>History</span>
+            </button>
+            <button class="nav-item" data-tab="profile">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
