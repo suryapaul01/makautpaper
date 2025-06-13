@@ -57,7 +57,7 @@ function switchTab(tabId) {
 // User data handling
 async function loadUserData() {
     try {
-        const response = await fetch('https://your-backend-production.up.railway.app/api/user', {
+        const response = await fetch('https://makautpaperback-production.up.railway.app/api/user', {
             headers: {
                 'X-Telegram-Init-Data': tg.initData
             }
@@ -83,7 +83,7 @@ function updateUserInterface() {
 // Department handling
 async function loadDepartments() {
     try {
-        const response = await fetch('https://your-backend-production.up.railway.app/api/departments');
+        const response = await fetch('https://makautpaperback-production.up.railway.app/api/departments');
         const departments = await response.json();
         displayDepartments(departments);
     } catch (error) {
@@ -105,7 +105,7 @@ function displayDepartments(departments) {
 async function selectDepartment(department) {
     currentDepartment = department;
     try {
-        const response = await fetch(`https://your-backend-production.up.railway.app/api/semesters/${department}`);
+        const response = await fetch(`https://makautpaperback-production.up.railway.app/api/semesters/${department}`);
         const semesters = await response.json();
         displaySemesters(semesters);
     } catch (error) {
@@ -139,7 +139,7 @@ function displaySemesters(semesters) {
 async function selectSemester(semester) {
     currentSemester = semester;
     try {
-        const response = await fetch(`https://your-backend-production.up.railway.app/api/years/${currentDepartment}/${semester}`);
+        const response = await fetch(`https://makautpaperback-production.up.railway.app/api/years/${currentDepartment}/${semester}`);
         const years = await response.json();
         displayYears(years);
     } catch (error) {
@@ -173,7 +173,7 @@ function displayYears(years) {
 async function selectYear(year) {
     currentYear = year;
     try {
-        const response = await fetch(`https://your-backend-production.up.railway.app/api/papers/${currentDepartment}/${currentSemester}/${year}`);
+        const response = await fetch(`https://makautpaperback-production.up.railway.app/api/papers/${currentDepartment}/${currentSemester}/${year}`);
         const papers = await response.json();
         displayPapers(papers);
     } catch (error) {
@@ -213,7 +213,7 @@ async function purchasePaper(paperId) {
     }
 
     try {
-        const response = await fetch('https://your-backend-production.up.railway.app/api/purchase', {
+        const response = await fetch('https://makautpaperback-production.up.railway.app/api/purchase', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -260,7 +260,7 @@ function updateBalance() {
 
 async function initiateStarPurchase(amount) {
     try {
-        const response = await fetch('https://your-backend-production.up.railway.app/api/create-invoice', {
+        const response = await fetch('https://makautpaperback-production.up.railway.app/api/create-invoice', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -296,7 +296,7 @@ async function initiateStarPurchase(amount) {
 // Purchase history handling
 async function loadPurchaseHistory() {
     try {
-        const response = await fetch('https://your-backend-production.up.railway.app/api/purchase-history', {
+        const response = await fetch('https://makautpaperback-production.up.railway.app/api/purchase-history', {
             headers: {
                 'X-Telegram-Init-Data': tg.initData
             }
@@ -329,7 +329,7 @@ async function loadProfile() {
     if (!currentUser) return;
 
     try {
-        const response = await fetch('https://your-backend-production.up.railway.app/api/profile', {
+        const response = await fetch('https://makautpaperback-production.up.railway.app/api/profile', {
             headers: {
                 'X-Telegram-Init-Data': tg.initData
             }
@@ -402,7 +402,7 @@ tg.onEvent('paymentCompleted', async (event) => {
 // Handle paper request
 async function requestPaper(paperId) {
     try {
-        const response = await fetch(`https://your-backend-production.up.railway.app/api/request-paper/${paperId}`, {
+        const response = await fetch(`https://makautpaperback-production.up.railway.app/api/request-paper/${paperId}`, {
             headers: {
                 'X-Telegram-Init-Data': tg.initData
             }
